@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://beattf28s6fxs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23euh"]
+albedo_color = Color(0.8039216, 0.8039216, 0.8039216, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kw568"]
+material = SubResource("StandardMaterial3D_23euh")
+size = Vector3(4, 0.1, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xrbug"]
+data = PackedVector3Array(-2, 0.049999997, 2, 2, 0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, -2, 2, -0.049999997, -2, -2, 0.049999997, -2, -2, -0.049999997, -2, 2, -0.049999997, -2, 2, 0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, -2, 2, -0.049999997, 2, -2, 0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, 2, -2, -0.049999997, -2, 2, 0.049999997, 2, -2, 0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, 2, -2, 0.049999997, -2, 2, 0.049999997, -2, -2, -0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, -2, 2, -0.049999997, 2, 2, -0.049999997, -2, -2, -0.049999997, -2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eelno"]
+albedo_color = Color(0.90526885, 3.3450872e-06, 1.1551381e-06, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_23euh"]
+material = SubResource("StandardMaterial3D_eelno")
+size = Vector3(4, 0.1, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pylb4"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="SpaceLIbrary" type="Node3D" unique_id=2109288124]
+
+[node name="FreeSpace" type="MeshInstance3D" parent="." unique_id=518843497]
+mesh = SubResource("BoxMesh_kw568")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FreeSpace" unique_id=1370156353]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FreeSpace/StaticBody3D" unique_id=1807435347]
+shape = SubResource("ConcavePolygonShape3D_xrbug")
+
+[node name="TurretBase" type="MeshInstance3D" parent="." unique_id=718859109]
+mesh = SubResource("BoxMesh_23euh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TurretBase" unique_id=1077546807]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TurretBase/StaticBody3D" unique_id=64651724]
+shape = SubResource("ConcavePolygonShape3D_pylb4")
