@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cn35fc53u7f0s"]
+
+[ext_resource type="Script" uid="uid://cmdlk4h6oipsc" path="res://UserInterface/victory_layer.gd" id="1_6k6vd"]
+[ext_resource type="FontFile" uid="uid://b053c7rym3ld4" path="res://Assets/Asap/static/Asap-Bold.ttf" id="2_o6yni"]
+[ext_resource type="Texture2D" uid="uid://bo1160ue2vux4" path="res://Assets/star.png" id="2_rt5eh"]
+
+[sub_resource type="Theme" id="Theme_px1sc"]
+default_font = ExtResource("2_o6yni")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kw568"]
+font_size = 96
+
+[node name="VictoryLayer" type="CanvasLayer" unique_id=1181515632]
+visible = false
+script = ExtResource("1_6k6vd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1746163461]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1692585393]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_px1sc")
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=339513207]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1562386443]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=2113946144]
+layout_mode = 2
+text = "Victory"
+label_settings = SubResource("LabelSettings_kw568")
+horizontal_alignment = 1
+
+[node name="StarContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1726893505]
+layout_mode = 2
+
+[node name="Star1" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer" unique_id=344967552]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_rt5eh")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Star2" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer" unique_id=513740114]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_rt5eh")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Star3" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer" unique_id=833915508]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_rt5eh")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="SurvivedLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1711056829]
+layout_mode = 2
+text = "Survived + 1"
+horizontal_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=717402352]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Full Health + 1"
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1637852240]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Money Money Money + 1"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=618190918]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="RetryButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=387042681]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=379363958]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="retry"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="quit"]

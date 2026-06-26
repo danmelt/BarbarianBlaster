@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://beattf28s6fxs"]
 
+[ext_resource type="PackedScene" uid="uid://d1uht2ck6mb" path="res://Assets/Tree.glb" id="1_yxocx"]
+[ext_resource type="PackedScene" uid="uid://cav5ciccqc06i" path="res://Assets/Rocks.glb" id="2_x4cm5"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23euh"]
-albedo_color = Color(0.8039216, 0.8039216, 0.8039216, 1)
+blend_mode = 1
+albedo_color = Color(0.2387442, 0.23874441, 0.2387445, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kw568"]
 material = SubResource("StandardMaterial3D_23euh")
@@ -11,7 +15,8 @@ size = Vector3(4, 0.1, 4)
 data = PackedVector3Array(-2, 0.049999997, 2, 2, 0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, -2, 2, -0.049999997, -2, -2, 0.049999997, -2, -2, -0.049999997, -2, 2, -0.049999997, -2, 2, 0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, -2, 2, -0.049999997, 2, -2, 0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, 2, -2, -0.049999997, -2, 2, 0.049999997, 2, -2, 0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, 2, -2, 0.049999997, -2, 2, 0.049999997, -2, -2, -0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, -2, 2, -0.049999997, 2, 2, -0.049999997, -2, -2, -0.049999997, -2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eelno"]
-albedo_color = Color(0.90526885, 3.3450872e-06, 1.1551381e-06, 1)
+transparency = 1
+albedo_color = Color(0.90588236, 0, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_23euh"]
 material = SubResource("StandardMaterial3D_eelno")
@@ -37,3 +42,7 @@ mesh = SubResource("BoxMesh_23euh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TurretBase/StaticBody3D" unique_id=64651724]
 shape = SubResource("ConcavePolygonShape3D_pylb4")
+
+[node name="Tree" parent="." unique_id=1581131372 instance=ExtResource("1_yxocx")]
+
+[node name="Rocks" parent="." unique_id=836676907 instance=ExtResource("2_x4cm5")]

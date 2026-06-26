@@ -2,22 +2,27 @@ extends PathFollow3D
 
 @export var speed: float = 3.0
 @export var max_health:= 50
+@export var kill_reward := 15
 
 @onready var base = get_tree().get_first_node_in_group("Base")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var bank = get_tree().get_first_node_in_group("bank")
 
 
 var current_health: int:
 	set(health_in):
+		if health_in < current_health:
+			animation_player.play("TakeDamage")
 		current_health = health_in
-		print("enemy health was changed")
 		
 		if current_health < 1:
-			print("enemy killed!")
+			bank.gold += kill_reward
 			queue_free()
 		
 
 func _ready() -> void:
 	current_health = max_health
+	#Engine.time_scale = 3
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,7 +31,7 @@ func _process(delta: float) -> void:
 	if progress_ratio == 1.0:
 		base.take_damage()	
 		set_process(false)	 	
+		queue_free()
 
 func take_damage() -> void:
-	print("Damage dealt to enemy!")
 	current_health -= 25

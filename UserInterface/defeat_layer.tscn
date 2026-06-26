@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://blbdmgojn6j8"]
+
+[ext_resource type="Script" uid="uid://cmudalpw6eq0k" path="res://UserInterface/defeat_layer.gd" id="1_qfjfv"]
+[ext_resource type="FontFile" uid="uid://b053c7rym3ld4" path="res://Assets/Asap/static/Asap-Bold.ttf" id="2_q5pt1"]
+
+[sub_resource type="Theme" id="Theme_clh6v"]
+default_font = ExtResource("2_q5pt1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_in127"]
+font_size = 48
+
+[node name="DefeatLayer" type="CanvasLayer" unique_id=1487940104]
+visible = false
+script = ExtResource("1_qfjfv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=417112707]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=960102809]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_clh6v")
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1062646948]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1034202144]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=950625758]
+process_mode = 2
+layout_mode = 2
+text = "Base Destroyed!"
+label_settings = SubResource("LabelSettings_in127")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=985666392]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="RetryButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=504246623]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=188326469]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="retry"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="quit"]
