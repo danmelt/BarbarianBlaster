@@ -5,15 +5,36 @@
 [ext_resource type="PackedScene" uid="uid://d2ayf6loa7but" path="res://Assets/Cannon.glb" id="3_r754r"]
 [ext_resource type="PackedScene" uid="uid://c34k36vj5q2ai" path="res://Assets/TurretBase.glb" id="4_2avlq"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_kw568"]
-height = 1.0
-
 [sub_resource type="Animation" id="Animation_djkev"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretBase/TurretTop/Cannon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.7, -0.3)]
+}
 
 [sub_resource type="Animation" id="Animation_ttsi1"]
 resource_name = "recoil"
-length = 0.3
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretBase/TurretTop/Cannon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.7, -0.3), Vector3(0, -0.7, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r754r"]
 _data = {
@@ -25,15 +46,14 @@ _data = {
 script = ExtResource("1_5kpma")
 projectile = ExtResource("2_djkev")
 
-[node name="TurretBase" type="MeshInstance3D" parent="." unique_id=201895180]
+[node name="TurretBase" type="Node3D" parent="." unique_id=1781336745]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_kw568")
 
 [node name="TurretTop" type="Node3D" parent="TurretBase" unique_id=1496444215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
 
 [node name="Cannon" parent="TurretBase/TurretTop" unique_id=2135419242 instance=ExtResource("3_r754r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6999996, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, -0.3)
 
 [node name="Timer" type="Timer" parent="." unique_id=1919787750]
 autostart = true

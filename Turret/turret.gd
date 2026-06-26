@@ -6,11 +6,9 @@ extends Node3D
 var enemy_path: Path3D
 var enemy: PathFollow3D
 
-#@onready var barrel: Node3D = $TurretBase/TurretTop/BarrelBase/Barrel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var barrel_base: Node3D = $TurretBase/TurretTop/BarrelBase
 @onready var cannon: Node3D = $TurretBase/TurretTop/Cannon
-@onready var turret_base: MeshInstance3D = $TurretBase
+@onready var turret_base: Node3D = $TurretBase
 
 func _physics_process(_delta: float) -> void:
 	enemy = find_best_target()

@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://dn7xsqx0w4ur3" path="res://DifficultyManager/difficulty_manager.gd" id="1_ab1g6"]
 
 [sub_resource type="Curve" id="Curve_ab1g6"]
-_limits = [0.25, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 3), 0.0, -0.85432637, 0, 0, Vector2(1, 0.25), -4.5268183, 0.0, 0, 0]
+_limits = [0.25, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1.125), 0.0, -2.621243, 0, 0, Vector2(1, 0.25), -2.0023367, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
 [sub_resource type="Curve" id="Curve_4w8ng"]
-_limits = [0.99, 150.0, 0.0, 1.0]
-_data = [Vector2(0, 39.82773), 0.0, 110.17228, 0, 1, Vector2(1, 150), 110.17228, 0.0, 1, 0]
+_limits = [0.99, 180.0, 0.0, 1.0]
+_data = [Vector2(0, 39.82773), 0.0, 141.08247, 0, 1, Vector2(0.99354845, 180), 141.08247, 0.0, 1, 0]
 point_count = 2
 
 [node name="DifficultyManager" type="Node" unique_id=196915440]
